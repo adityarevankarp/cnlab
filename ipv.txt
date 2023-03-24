@@ -1,0 +1,37 @@
+Router>enable
+Router#configure terminal
+Enter configuration commands, one per line. End with CNTL/Z.
+Router(config)#ipv6 unicast-routing
+Router(config)#interface gigabitEthernet 0/0
+Router(config-if)#ipv6 address 2001:DB8:1:1::1/64
+Router(config-if)#ipv6 address FE80::1 link-local
+Router(config-if)#no shut down
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to up
+
+Router(config-if)#exit
+Router(config)#interface gigabitEthernet 0/1
+Router(config-if)#ipv6 address 2001:DB8:1:2::1/64
+Router(config-if)#ip
+Router(config-if)#no shut down
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to up
+
+Router(config-if)#exit
+Router(config)#interface serial0/0/0
+Router(config-if)#ipv6 address 2001:DB8:1:A001::2/64
+Router(config-if)#ipv6 address FE80::1 link-local
+Router(config-if)#no shut down
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface Serial0/0/0, changed state to up
+
+Router(config-if)#exit
+Router(config)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up
